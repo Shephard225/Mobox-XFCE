@@ -1,29 +1,42 @@
 #!/bin/bash
 clear
-echo "Installing packages for Termux..."
 
+pkg install root-repo -y
+pkg install x11-repo -y
+pkg install tur-repo -y
+pkg install wget -y
+pkg install git -y
+pkg install hashdeep -y
+pkg install termux-am -y
+pkg install termux-x11-nightly -y
+pkg install p7zip -y
+pkg install patchelf -y
+pkg install ncurses-utils -y
+pkg install mesa-zink -y
+pkg install virglrenderer-mesa-zink -y
+pkg install vulkan-loader-android -y
+pkg install android-tools -y
+pkg install python-tkinter -y
+pkg install xfce4 -y
+apt install xfce4-whiskermenu-plugin -y
+apt install xfce4-screenshooter -y
+apt install xfce4-taskmanager -y
+apt install xfce4-docklike-plugin -y
+apt install matchbox-keyboard -y
+pkg install gimp -y
+pkg install mpv -y
+pkg install firefox -y
+pkg install vlc -y
+pkg install vlc-qt -y
+pkg install abiword -y
+apt install ristretto -y
 pkg update -y
 pkg upgrade -y
-pkg install -y x11-repo
-pkg install -y git
-pkg install -y tar
-pkg install -y wget
-pkg install -y tsu
-pkg install -y termux-x11-nightly
-pkg install -y p7zip
-pkg install -y patchelf
-pkg install -y ncurses-utils
-pkg install -y mesa-zink
-pkg install -y virglrender-mesa-zink
-pkg install -y vulkan-loader-android
-pkg install -y android-tools
-pkg install -y python-tkinter
-pkg install -y xfce4
-
-sleep 3
+apt-get clean -y
+apt-get update -y
+apt-get upgrade -y
+apt-get -y --with-new-pkgs -o Dpkg::Options::="--force-confdef" upgrade
 clear
-sleep 1
-echo "Packages for Termux installed successfully."
 
 if [ -d "$PREFIX/glibc" ]; then
     echo "Glibc found."
@@ -33,46 +46,32 @@ fi
 
 echo ""
 echo "Select an option:"
-echo "1) Install Box86 version (not avaiable)"
+echo "1) Install Box86 version"
 echo "2) Install WoW64 version"
 echo -n "Selected number: "
 read choice
 
 case "$choice" in
 1)
-    echo "Installing Box86 version..."
     wget -q --show-progress -O /data/data/com.termux/files/usr/mobox-box86-glibc-xfce.tar.xz "https://github.com/Shephard225/Mobox-XFCE/releases/download/Glibc/mobox-box86-glibc-xfce.tar.xz"
-    tar -xf mobox-box86-glibc-xfce.tar.xz -C "$PREFIX"
-    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce" "$PREFIX/bin/mobox-xfce"
-    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce-unistall" "$PREFIX/bin/mobox-xfce"
-    ln -sf "$PREFIX/glibc/opt/scripts/xfce" "$PREFIX/bin/mobox-xfce"
-    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce-update" "$PREFIX/bin/mobox-xfce"
-    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce --unsistall" "$PREFIX/bin/mobox-xfce"
-    ln -sf "$PREFIX/glibc/opt/scripts/restore-menu" "$PREFIX/bin/mobox-xfce"
-    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce
-    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce-unistall
-    chmod +x $PREFIX/glibc/opt/scripts/xfce
-    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce-update
-    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce --unistall
-    chmod +x $PREFIX/glibc/opt/scripts/restore-menu
+    tar -xf /data/data/com.termux/files/usr/mobox-box86-glibc-xfce.tar.xz -C /data/data/com.termux/files/usr/
+    ln -sf /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce /data/data/com.termux/files/usr/bin/mobox-xfce
+    ln -sf /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce --unistall /data/data/com.termux/files/usr/bin/mobox-xfce-unistall
+    ln -sf /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce-update /data/data/com.termux/files/usr/bin/mobox-xfce-update
+    chmod +x /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce
+    chmod +x /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce --unistall
+    chmod +x /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce-update
     echo "Box86 version installed successfully."
     ;;
 2)
-    echo "Installing WoW64 version..."
     wget -q --show-progress -O /data/data/com.termux/files/usr/mobox-wow64-glibc-xfce.tar.xz "https://github.com/Shephard225/Mobox-XFCE/releases/download/Glibc/mobox-wow64-glibc-xfce.tar.xz"
-    tar -xf mobox-wow64-glibc-xfce.tar.xz -C "$PREFIX"
-    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce" "$PREFIX/bin/mobox-xfce"
-    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce-unistall" "$PREFIX/bin/mobox-xfce"
-    ln -sf "$PREFIX/glibc/opt/scripts/xfce" "$PREFIX/bin/mobox-xfce"
-    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce-update" "$PREFIX/bin/mobox-xfce"
-    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce --unsistall" "$PREFIX/bin/mobox-xfce"
-    ln -sf "$PREFIX/glibc/opt/scripts/restore-menu" "$PREFIX/bin/mobox-xfce"
-    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce
-    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce-unistall
-    chmod +x $PREFIX/glibc/opt/scripts/xfce
-    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce-update
-    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce --unistall
-    chmod +x $PREFIX/glibc/opt/scripts/restore-menu
+    tar -xf /data/data/com.termux/files/usr/mobox-wow64-glibc-xfce.tar.xz -C /data/data/com.termux/files/usr/
+    ln -sf /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce /data/data/com.termux/files/usr/bin/mobox-xfce
+    ln -sf /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce-unistall /data/data/com.termux/files/usr/bin/mobox-xfce-unistall
+    ln -sf /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce-update /data/data/com.termux/files/usr/bin/mobox-xfce-update
+    chmod +x /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce
+    chmod +x /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce-unistall
+    chmod +x /data/data/com.termux/files/usr/glibc/opt/scripts/mobox-xfce-update
     echo "WoW64 version installed successfully."
     ;;
 *)
@@ -81,4 +80,4 @@ case "$choice" in
     ;;
 esac
 
-echo "To start type: mobox-remake"
+echo "To start type: mobox-xfce"
