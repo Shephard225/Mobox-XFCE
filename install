@@ -41,7 +41,7 @@ read choice
 case "$choice" in
 1)
     echo "Installing Box86 version..."
-    wget -q --show-progress -O mobox-box86-glibc-xfce.tar.xz "https://github.com/Shephard225/Mobox-XFCE/releases/download/Glibc/mobox-box86-glibc-xfce.tar.xz"
+    wget -q --show-progress -O /data/data/com.termux/files/usr/mobox-box86-glibc-xfce.tar.xz "https://github.com/Shephard225/Mobox-XFCE/releases/download/Glibc/mobox-box86-glibc-xfce.tar.xz"
     tar -xf mobox-box86-glibc-xfce.tar.xz -C "$PREFIX"
     ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce" "$PREFIX/bin/mobox-xfce"
     ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce-unistall" "$PREFIX/bin/mobox-xfce"
@@ -59,7 +59,7 @@ case "$choice" in
     ;;
 2)
     echo "Installing WoW64 version..."
-    wget -q --show-progress -O mobox-wow64-glibc-xfce.tar.xz "https://github.com/Shephard225/Mobox-XFCE/releases/download/Glibc/mobox-wow64-glibc-xfce.tar.xz"
+    wget -q --show-progress -O /data/data/com.termux/files/usr/mobox-wow64-glibc-xfce.tar.xz "https://github.com/Shephard225/Mobox-XFCE/releases/download/Glibc/mobox-wow64-glibc-xfce.tar.xz"
     tar -xf mobox-wow64-glibc-xfce.tar.xz -C "$PREFIX"
     ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce" "$PREFIX/bin/mobox-xfce"
     ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce-unistall" "$PREFIX/bin/mobox-xfce"
