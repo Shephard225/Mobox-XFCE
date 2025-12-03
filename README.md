@@ -34,7 +34,7 @@ Adreno 610
 * `DXVK` 2.2 gplasync or 2.3 gplasync
 * `Turnip`V4 or V3
 * `Primary Cores` 8 Cores
-* `HUD` Mangohud (only for wow64 coming soon )
+* `HUD` Mangohud
 * `Wine` 8.18 Staging for and 8.25 for (box86-64)
 
 ## HUD :
