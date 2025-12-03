@@ -1,0 +1,84 @@
+#!/bin/bash
+clear
+echo "Installing packages for Termux..."
+
+pkg update -y
+pkg upgrade -y
+pkg install -y x11-repo
+pkg install -y git
+pkg install -y tar
+pkg install -y wget
+pkg install -y tsu
+pkg install -y termux-x11-nightly
+pkg install -y p7zip
+pkg install -y patchelf
+pkg install -y ncurses-utils
+pkg install -y mesa-zink
+pkg install -y virglrender-mesa-zink
+pkg install -y vulkan-loader-android
+pkg install -y android-tools
+pkg install -y python-tkinter
+pkg install -y xfce4
+
+sleep 3
+clear
+sleep 1
+echo "Packages for Termux installed successfully."
+
+if [ -d "$PREFIX/glibc" ]; then
+    echo "Glibc found."
+else
+    echo "Glibc not found."
+fi
+
+echo ""
+echo "Select an option:"
+echo "1) Install Box86 version (not avaiable)"
+echo "2) Install WoW64 version"
+echo -n "Selected number: "
+read choice
+
+case "$choice" in
+1)
+    echo "Installing Box86 version..."
+    wget -q --show-progress -O mobox-box86-glibc-xfce.tar.xz "https://github.com/Shephard225/Mobox-XFCE/releases/download/Glibc/mobox-box86-glibc-xfce.tar.xz"
+    tar -xf mobox-box86-glibc-xfce.tar.xz -C "$PREFIX"
+    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce" "$PREFIX/bin/mobox-xfce"
+    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce-unistall" "$PREFIX/bin/mobox-xfce"
+    ln -sf "$PREFIX/glibc/opt/scripts/xfce" "$PREFIX/bin/mobox-xfce"
+    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce-update" "$PREFIX/bin/mobox-xfce"
+    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce --unsistall" "$PREFIX/bin/mobox-xfce"
+    ln -sf "$PREFIX/glibc/opt/scripts/restore-menu" "$PREFIX/bin/mobox-xfce"
+    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce
+    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce-unistall
+    chmod +x $PREFIX/glibc/opt/scripts/xfce
+    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce-update
+    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce --unistall
+    chmod +x $PREFIX/glibc/opt/scripts/restore-menu
+    echo "Box86 version installed successfully."
+    ;;
+2)
+    echo "Installing WoW64 version..."
+    wget -q --show-progress -O mobox-wow64-glibc-xfce.tar.xz "https://github.com/Shephard225/Mobox-XFCE/releases/download/Glibc/mobox-wow64-glibc-xfce.tar.xz"
+    tar -xf mobox-wow64-glibc-xfce.tar.xz -C "$PREFIX"
+    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce" "$PREFIX/bin/mobox-xfce"
+    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce-unistall" "$PREFIX/bin/mobox-xfce"
+    ln -sf "$PREFIX/glibc/opt/scripts/xfce" "$PREFIX/bin/mobox-xfce"
+    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce-update" "$PREFIX/bin/mobox-xfce"
+    ln -sf "$PREFIX/glibc/opt/scripts/mobox-xfce --unsistall" "$PREFIX/bin/mobox-xfce"
+    ln -sf "$PREFIX/glibc/opt/scripts/restore-menu" "$PREFIX/bin/mobox-xfce"
+    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce
+    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce-unistall
+    chmod +x $PREFIX/glibc/opt/scripts/xfce
+    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce-update
+    chmod +x $PREFIX/glibc/opt/scripts/mobox-xfce --unistall
+    chmod +x $PREFIX/glibc/opt/scripts/restore-menu
+    echo "WoW64 version installed successfully."
+    ;;
+*)
+    echo "Invalid option."
+    exit 1
+    ;;
+esac
+
+echo "To start type: mobox-remake"
