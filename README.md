@@ -17,10 +17,10 @@ curl -s -o ~/x https://raw.githubusercontent.com/Shephard225/Mobox-XFCE/main/ins
 
 
 ### Run Mobox-XFCE :
-* `mobox-xfce` To Run Boxvidra 
-* `mobox-xfce --update` To Update Boxvidra
-* `mobox-xfce --reinstall` To Reinstall Boxvidra
-* `mobox-xfce --uninstall ` To Uninstall Boxvidra
+* `mobox-xfce` To Run Mobox-XFCE
+* `mobox-xfce-update` To Update Mobox-XFCE
+* `mobox-xfce --reinstall` To Reinstall Mobox-XFCE
+* `mobox-xfce --uninstall ` To Uninstall Mobox-XFCE
 
 
 ### Requirements :
