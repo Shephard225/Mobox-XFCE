@@ -97,7 +97,7 @@ echo "Updating package-manager..."
 mkdir -p $PREFIX/glibc/opt/package-manager/installed
 
 # Твой токен и ID репозитория
-echo "PRIVATE_TOKEN=glpat-4xdW-D5uR_PVLiL8wpjgOm86MQp1Omo3dHV5Cw.01.1201q2xv8
+echo "PRIVATE_TOKEN=glpat-2BtvE70NEE_AwzXEmIQVE286MQp1Omo3dXZtCw.01.1218edr66
 PROJECT_ID=77055448" > $PREFIX/glibc/opt/package-manager/token
 
 . $PREFIX/glibc/opt/package-manager/token
